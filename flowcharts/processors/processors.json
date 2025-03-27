@@ -1,0 +1,46 @@
+{
+    "localFiles": {
+        "postUrl": "http://local_files_processor:8089",
+        "topicUrl": ""
+    },
+    "frameExtractor": {
+        "postUrl": "http://frameextractor_processor:8090",
+        "topicUrl": ""
+    },
+    "speechToText": {
+        "postUrl": "http://speech2text_processor:8087",
+        "topicUrl": ""
+    },
+    "textToSpeech": {
+        "postUrl": "http://text2speech_processor:8099",
+        "topicUrl": ""
+    },
+    "audioFeature": {
+        "postUrl": "http://audiofeature_processor:8088",
+        "topicUrl": ""
+    },
+    "milvusIx": {
+        "postUrl": "http://milvus_ix_processor:8091",
+        "topicUrl": ""
+    },
+    "llm": {
+        "postUrl": "http://llm_processor:8092",
+        "topicUrl": ""
+    },
+    "imageDescription": {
+        "postUrl": "http://image_processor:8095",
+        "topicUrl": ""
+    },
+    "baai": {
+        "postUrl": "http://baai:8097",
+        "topicUrl": ""
+    },
+    "chunker": {
+        "postUrl": "http://chunker:8098",
+        "topicUrl": ""
+    },
+    "ocr": {
+        "postUrl": "http://ocr_processor:8100",
+        "topicUrl": ""
+    }
+}
