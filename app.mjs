@@ -25,9 +25,7 @@ import { EmailHandler } from "@ejfdelgado/ejflab-back/srv/EmailHandler.mjs";
 import { SocketIOCall } from "@ejfdelgado/ejflab-back/srv/SocketIOCall.mjs";
 
 import { MyConstants } from "@ejfdelgado/ejflab-common/src/MyConstants.js";
-import { EjflabSrv } from "./srv/ejflab/EjflabSrv.mjs";
-import { ImagiationSrv } from "./srv/ejflab/ImagiationSrv.mjs";
-import { ComputeEngineSrv } from "./srv/ejflab/ComputeEngineSrv.mjs";
+import { APDLearnSrv } from "./srv/APDLearnSrv.mjs";
 
 // Overwrite constants
 MyConstants.overwriteEnvVariables();
@@ -76,12 +74,6 @@ app.use('/assets', express.static('src/assets', {
 }));
 
 app.post("/srv/email/send", [commonHeaders, checkAuthenticatedSilent, express.json(), handleErrorsDecorator(EmailHandler.send)]);
-app.post('/srv/instances/state', [commonHeaders, checkAuthenticatedSilent, express.json(), handleErrorsDecorator(ComputeEngineSrv.getStatus)]);
-
-app.post('/srv/:pageType/:pageId/confsw', [commonHeaders, checkAuthenticatedSilent, AuthorizationSrv.hasPagePermisions([["pg_r"]]), express.json(), handleErrorsDecorator(ImagiationSrv.confSave)]);
-app.post('/srv/:pageType/:pageId/confsd', [commonHeaders, checkAuthenticatedSilent, AuthorizationSrv.hasPagePermisions([["pg_r"]]), express.json(), handleErrorsDecorator(ImagiationSrv.confDelete)]);
-app.post('/srv/:pageType/:pageId/confsr', [commonHeaders, checkAuthenticatedSilent, AuthorizationSrv.hasPagePermisions([["pg_r"]]), express.json(), handleErrorsDecorator(ImagiationSrv.confRead)]);
-
 
 app.post('/srv/sec/r', [commonHeaders, checkAuthenticated, express.json(), handleErrorsDecorator(SecretsSrv.read)]);
 app.post('/srv/sec/w', [commonHeaders, checkAuthenticated, express.json(), handleErrorsDecorator(SecretsSrv.save)]);
@@ -123,9 +115,8 @@ app.delete('/srv/:pageType/:pageId/localpage.json', [commonHeaders, checkAuthent
 app.get('/srv/:pageType/:pageId/localpage.json', [commonHeaders, checkAuthenticatedSilent, handleErrorsDecorator(MyFileServiceLocal.readFile)]);
 
 
-
 // Configure wideSight api
-EjflabSrv.configure(app);
+APDLearnSrv.configure(app);
 
 app.use("/", handleErrorsDecorator(MainHandler.handle));// Esto solo funciona sin el npm run angular
 
