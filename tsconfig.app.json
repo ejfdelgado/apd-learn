@@ -9,6 +9,6 @@
     "src/polyfills.ts"
   ],
   "include": [
-    "src/app/views/imagiation/*.ts",
+    "src/app/views/apd-learn/*.ts",
   ]
 }
