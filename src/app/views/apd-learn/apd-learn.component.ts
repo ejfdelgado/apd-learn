@@ -12,7 +12,8 @@ import {
   FlowchartService,
   ModalService,
   WebcamService,
-  OptionData
+  OptionData,
+  StatusBarOptionsData
 } from 'ejflab-front-lib';
 
 
@@ -23,6 +24,17 @@ import {
 })
 export class ApdLearnComponent extends BaseComponent implements OnInit, OnDestroy {
   public extraOptions: Array<OptionData> = [];
+  public statusBarOptions: StatusBarOptionsData = {
+    displayUserName: true,
+    createDocument: false,
+    deleteDocument: false,
+    editDocument: false,
+    editDocumentPermissions: false,
+    searchDocuments: false
+  };
+  statusBarTextStyle: { [key: string]: string } = {
+    "color": "black",
+  };
 
   constructor(
     public override route: ActivatedRoute,
