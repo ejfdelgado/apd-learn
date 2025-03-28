@@ -16,10 +16,16 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ChecklistComponent } from './components/checklist/checklist.component';
+import { TheoryComponent } from './components/theory/theory.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
-    ApdLearnComponent
+    ApdLearnComponent,
+    ChecklistComponent,
+    TheoryComponent,
+    LeaderboardComponent
   ],
   imports: [
     CommonModule,

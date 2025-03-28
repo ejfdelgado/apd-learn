@@ -2,3 +2,12 @@ p {
     font-weight: 100;
     font-size: 1.2em;
 }
+
+h1,
+h2,
+h3,
+p,
+span,
+strong {
+    font-family: 'Comfortaa', "Helvetica Neue", sans-serif;
+}

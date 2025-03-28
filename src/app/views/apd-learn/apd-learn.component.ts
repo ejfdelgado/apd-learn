@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Auth } from '@angular/fire/auth';
 import {
   TupleService,
@@ -13,7 +13,8 @@ import {
   ModalService,
   WebcamService,
   OptionData,
-  StatusBarOptionsData
+  StatusBarOptionsData,
+  MyUserOptionsData
 } from 'ejflab-front-lib';
 
 
@@ -35,6 +36,11 @@ export class ApdLearnComponent extends BaseComponent implements OnInit, OnDestro
   statusBarTextStyle: { [key: string]: string } = {
     "color": "black",
   };
+  statusBarUserOptions: MyUserOptionsData = {
+    editEmail: true,
+    editName: true,
+    editPhone: false,
+  };
 
   constructor(
     public override route: ActivatedRoute,
@@ -46,9 +52,10 @@ export class ApdLearnComponent extends BaseComponent implements OnInit, OnDestro
     public override fileService: FileService,
     public override modalService: ModalService,
     public override webcamService: WebcamService,
-    flowchartSrv: FlowchartService,
-    callService: CallService,
-    auth: Auth
+    public override flowchartSrv: FlowchartService,
+    public override callService: CallService,
+    public override auth: Auth,
+    public router: Router,
   ) {
     super(
       flowchartSrv,
@@ -64,6 +71,32 @@ export class ApdLearnComponent extends BaseComponent implements OnInit, OnDestro
       webcamService,
       auth
     );
+
+    this.createMenu();
+  }
+
+  createMenu() {
+    this.extraOptions.push({
+      label: "Preguntas de entrenamiento",
+      icon: "menu_book",
+      action: () => {
+        this.router.navigate(['apd-learn', "theory"]);
+      },
+    });
+    this.extraOptions.push({
+      label: "Lista de chequeo",
+      icon: "checklist",
+      action: () => {
+        this.router.navigate(['apd-learn', "checklist"]);
+      },
+    });
+    this.extraOptions.push({
+      label: "Puntuaciones",
+      icon: "emoji_events",
+      action: () => {
+        this.router.navigate(['apd-learn', "leaderboard"]);
+      },
+    });
   }
 
   override async ngOnInit() {

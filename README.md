@@ -4,4 +4,5 @@
 
 ```
 ng generate module views/apd-learn --route apd-learn --module app.module
+ng generate component views/apd-learn/components/leaderboard --standalone false  --skip-tests
 ```

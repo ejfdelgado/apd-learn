@@ -32,6 +32,10 @@
     padding: 10px;
 }
 
+.padding_30 {
+    padding: 30px;
+}
+
 .container_vertical.centered {
     justify-content: center;
 }
