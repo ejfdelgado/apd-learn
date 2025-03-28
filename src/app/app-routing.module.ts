@@ -22,7 +22,7 @@ IMPORTANTE: Cuando agregue un módulo acá, debe modificar tsconfig.app.json
 Ver MyConstants.js static ANONYMOUS_PATHS = ['/uechat'];
 */
 const PAGINAS = [
-  { id: 'apdlearn', module: 'ApdLearnModule' },
+  { id: 'apd-learn', module: 'ApdLearnModule' },
 ];
 
 for (let i = 0; i < PAGINAS.length; i++) {
