@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChoiceCardData, QuestionCardData, TheoryService, TopicCardData } from 'src/app/services/theory.service';
+import { ModuloSonido } from '@ejfdelgado/ejflab-common/src/ModuloSonido';
 
 @Component({
   selector: 'app-questions',
@@ -24,10 +25,12 @@ export class QuestionsComponent implements OnInit {
   topicStyle: { [key: string]: string } = {};
   finished: boolean = false;
   lives: number = 10;
+  correctCounter: number = 0;
 
   state: "pristine" | "selected" | "correct" | "incorrect" = "pristine";
 
   constructor(
+    private elementRef: ElementRef,
     public router: Router,
     public theorySrv: TheoryService,
   ) {
@@ -37,6 +40,10 @@ export class QuestionsComponent implements OnInit {
   async ngOnInit() {
     const urlParams = new URLSearchParams(window.location.search);
     this.topicId = urlParams.get("topic");
+    const response = await ModuloSonido.preload([
+      '/assets/sounds/error.mp3',
+      '/assets/sounds/mario-coin.mp3',
+    ]);
     if (this.topicId) {
       this.questions = await this.theorySrv.getQuestions(this.topicId);
       this.theorySrv.suffleQuestions(this.questions);
@@ -53,6 +60,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   nextQuestion() {
+    this.currentChoice = null;
     if (this.questions.length == 0) {
       return;
     }
@@ -66,6 +74,7 @@ export class QuestionsComponent implements OnInit {
         this.finished = true;
       }
     }
+    this.scrollTop();
   }
 
   selectChoice(choice: ChoiceCardData) {
@@ -93,8 +102,11 @@ export class QuestionsComponent implements OnInit {
       return;
     }
     if (this.currentChoice.correctness > 0) {
+      ModuloSonido.play('/assets/sounds/mario-coin.mp3');
       this.state = 'correct';
+      this.correctCounter += 1;
     } else {
+      ModuloSonido.play('/assets/sounds/error.mp3');
       this.state = 'incorrect';
       this.lives -= 1;
       if (this.lives == 0) {
@@ -119,5 +131,10 @@ export class QuestionsComponent implements OnInit {
   async continue() {
     this.nextQuestion();
     this.state = 'pristine';
+  }
+
+  scrollTop() {
+    const nativeElement = this.elementRef.nativeElement;
+    nativeElement.scrollTop = 0;
   }
 }
