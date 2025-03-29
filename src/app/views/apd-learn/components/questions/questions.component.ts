@@ -22,6 +22,7 @@ export class QuestionsComponent implements OnInit {
   currentQuestion: QuestionCardData | null = null;
   currentChoice: ChoiceCardData | null = null;
   topicStyle: { [key: string]: string } = {};
+  finished: boolean = false;
 
   state: "pristine" | "selected" | "correct" | "incorrect" = "pristine";
 
@@ -60,11 +61,16 @@ export class QuestionsComponent implements OnInit {
       const index = this.questions.indexOf(this.currentQuestion);
       if (index < this.questions.length - 1) {
         this.currentQuestion = this.questions[index + 1];
+      } else {
+        this.finished = true;
       }
     }
   }
 
   selectChoice(choice: ChoiceCardData) {
+    if (['correct', 'incorrect'].indexOf(this.state) >= 0) {
+      return;
+    }
     this.currentChoice = choice;
     this.state = "selected";
   }
@@ -73,8 +79,11 @@ export class QuestionsComponent implements OnInit {
     if (this.currentQuestion == null || this.questions.length == 0) {
       return "0%";
     }
+    if (this.finished) {
+      return "100%";
+    }
     const index = this.questions.indexOf(this.currentQuestion);
-    const value = Math.ceil(100 * (index + 1) / this.questions.length);
+    const value = (100 * (index) / this.questions.length).toFixed(0);
     return value + "%";
   }
 
@@ -103,6 +112,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   async continue() {
-
+    this.nextQuestion();
+    this.state = 'pristine';
   }
 }
