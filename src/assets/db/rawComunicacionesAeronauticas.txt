@@ -1,0 +1,97 @@
+¿En qué bandas de frecuencias operan las comunicaciones aéreas?
+VLF Muy Baja Frecuencia.
+VHF Muy Alta Frecuencia.
+UHF Ultra Alta Frecuencia.
+Respuesta opción
+2
+
+¿Cuál es el dial de la frecuencia de emergencia aeronáutica?
+118,0 MHz.
+121,5 MHz.
+122,9 KHz.
+Respuesta opción
+2
+
+¿En dónde se pueden verificar las frecuencias aeronáuticas de comunicación de un aeródromo?
+En la carta aérea del ATM nacional.
+En las diferentes cartas aeronáuticas publicadas en el AIP – AD Aeródromo.
+Directamente en las instalaciones del aeródromo para confirmar su dial.
+Respuesta opción
+2
+
+¿Qué es interferencia?
+Propagación de muchas ondas de radio.
+Intermitencia de una onda de frecuencia.
+Cuando dos señales en la misma onda se interrumpen entre sí. 
+Respuesta opción
+3
+
+¿Qué tipo de Interferencias existen?
+Ruido atmosférico.
+Ruido producido por el hombre.
+Las dos opciones son correctas.
+Respuesta opción
+3
+
+¿Cuál es el alfabeto utilizado para deletrear palabras en la aviación?
+Código “Q” de comunicaciones.
+Lenguaje militar táctico.
+Alfabeto Fonético Internacional OACI
+Respuesta opción
+3
+
+De acuerdo con el Alfabeto Fonético OACI, ¿cuál es el correcto deletreo de la palabra “VUELO”?
+Vaca – Uva – Enano – Limón – Opera.
+Victor – Uniform – Eco – Lima – Oscar.
+Vision – Uniform – Eco - Liceo – Omar.
+Respuesta opción
+2
+
+Según el alfabeto fonético de la OACI. La letra equis (x) se pronuncia:
+Exruy
+Exrey
+Extrey
+Respuesta opción
+2
+
+¿Cómo se verifica que la información suministrada por radio, haya sido correctamente recibida?
+Obturando el PTT tres veces al terminar el mensaje.
+Se debe colacionar la información.
+Respondiendo “RECIBIDO” al terminar de escucharla.
+Respuesta opción
+2
+
+¿Qué no puede existir en el proceso de la comunicación? 
+Dudas, confusión y ambigüedad.
+Que la información sea veraz.
+Que el idioma sea el mismo.
+Respuesta opción
+1
+
+¿Qué significa PAN-PAN?
+Señal de aviso de Urgencia.
+Señal de aviso de emergencia.
+Aviso de información aeronáutica.
+Respuesta opción
+1
+
+¿Qué significa MAY DAY - MAY DAY - MAY DAY?
+Señal de aviso de Urgencia.
+Señal de aviso de emergencia.
+Aviso de información aeronáutica.
+Respuesta opción
+2
+
+Cuando una aeronave se encuentra en una situación de emergencia, radiotelefónicamente utiliza las palabras:
+Mayday, mayday, mayday
+Pan, pan, pan
+Sos, sos, sos
+Respuesta opción
+1
+
+Cuando una aeronave se encuentra en una situación de urgencia, radiotelefónicamente utiliza las palabras:
+Mayday, mayday, mayday
+Pan, pan, pan
+Sos, sos, sos
+Respuesta opción
+2
