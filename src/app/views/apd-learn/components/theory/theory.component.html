@@ -2,10 +2,13 @@
     <h1>Preguntas de entrenamiento</h1>
     <div class="container_vertical responsive_width_60">
         <div class="responsive_columns_3_2_1 gap_30 relative">
-            <div *ngFor="let topic of topics" class="container_card padding_30 button botton_shadow square container_vertical">
+            <div *ngFor="let topic of topics"
+                class="container_card padding_30 button botton_shadow square container_vertical"
+                [ngStyle]="topic.backgroundStyle">
                 <h1 class="card_header black_subtitle">{{ topic.title }}</h1>
-                <div class="card_body full"></div>
-                <span class="card_footer black_subtitle">{{ topic.description }}</span>
+                <div class="card_body full text_centered" [ngStyle]="topic.bodyStyle">
+                </div>
+                <h3 class="card_footer black_subtitle">{{ topic.description }}</h3>
             </div>
         </div>
     </div>

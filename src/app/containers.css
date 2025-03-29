@@ -91,7 +91,7 @@
 }
 
 .container_card {
-    border: 2px solid gray;
+    border: 4px solid gray;
     border-radius: 10px;
 }
 
@@ -102,13 +102,19 @@
     transition: top 0.2s linear;
 }
 
+.card_body {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
 .relative {
     position: relative;
 }
 
 .container_card.button:hover {
     top: -5px;
-    
+
 }
 
 @media screen and (max-width: 1200px) {
