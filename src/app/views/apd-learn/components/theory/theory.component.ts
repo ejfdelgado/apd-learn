@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TheoryService, TopicCardData } from 'src/app/services/theory.service';
+import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
   selector: 'app-theory',
@@ -21,6 +22,7 @@ export class TheoryComponent implements OnInit {
   constructor(
     public router: Router,
     public theorySrv: TheoryService,
+    public utilitySrv: UtilityService,
   ) {
 
   }
@@ -30,6 +32,7 @@ export class TheoryComponent implements OnInit {
   }
 
   navigate(topic: TopicCardData) {
+    this.utilitySrv.fullScreen();
     this.router.navigate(['apd-learn', "questions"], { queryParams: { "topic": topic.id } });
   }
 }

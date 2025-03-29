@@ -113,6 +113,9 @@ export class QuestionsComponent implements OnInit {
         this.finished = true;
       }
     }
+    setTimeout(() => {
+      this.scrollDown();
+    });
   }
 
   getCorrectAnswer() {
@@ -136,5 +139,10 @@ export class QuestionsComponent implements OnInit {
   scrollTop() {
     const nativeElement = this.elementRef.nativeElement;
     nativeElement.scrollTop = 0;
+  }
+
+  scrollDown() {
+    const nativeElement = this.elementRef.nativeElement;
+    nativeElement.scrollTop = nativeElement.scrollHeight;
   }
 }

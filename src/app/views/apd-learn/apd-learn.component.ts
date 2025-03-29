@@ -16,6 +16,7 @@ import {
   StatusBarOptionsData,
   MyUserOptionsData
 } from 'ejflab-front-lib';
+import { UtilityService } from 'src/app/services/utility.service';
 
 
 @Component({
@@ -59,6 +60,7 @@ export class ApdLearnComponent extends BaseComponent implements OnInit, OnDestro
     public override callService: CallService,
     public override auth: Auth,
     public router: Router,
+    public utilitySrv: UtilityService,
   ) {
     super(
       flowchartSrv,
@@ -83,6 +85,7 @@ export class ApdLearnComponent extends BaseComponent implements OnInit, OnDestro
       label: "Preguntas de entrenamiento",
       icon: "menu_book",
       action: () => {
+        this.utilitySrv.fullScreen();
         this.router.navigate(['apd-learn', "theory"]);
       },
     });
@@ -90,6 +93,7 @@ export class ApdLearnComponent extends BaseComponent implements OnInit, OnDestro
       label: "Lista de chequeo",
       icon: "checklist",
       action: () => {
+        this.utilitySrv.fullScreen();
         this.router.navigate(['apd-learn', "checklist"]);
       },
     });
@@ -97,6 +101,7 @@ export class ApdLearnComponent extends BaseComponent implements OnInit, OnDestro
       label: "Puntuaciones",
       icon: "emoji_events",
       action: () => {
+        this.utilitySrv.fullScreen();
         this.router.navigate(['apd-learn', "leaderboard"]);
       },
     });
