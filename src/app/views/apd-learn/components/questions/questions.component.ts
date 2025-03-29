@@ -27,7 +27,6 @@ export class QuestionsComponent implements OnInit {
   lives: number = 10;
   correctCounter: number = 0;
   missedQuestions: QuestionCardData[] = [];
-
   state: "pristine" | "selected" | "correct" | "incorrect" = "pristine";
 
   constructor(
@@ -44,16 +43,32 @@ export class QuestionsComponent implements OnInit {
     const response = await ModuloSonido.preload([
       '/assets/sounds/error.mp3',
       '/assets/sounds/mario-coin.mp3',
+      '/assets/sounds/newscore.mp3',
+      '/assets/sounds/success.mp3',
     ]);
     if (this.topicId) {
-      this.questions = await this.theorySrv.getQuestions(this.topicId, 5);
-      this.theorySrv.suffleQuestions(this.questions);
       this.topic = await this.theorySrv.getTopic(this.topicId);
       if (this.topic) {
         this.topicStyle['background-color'] = this.topic.backgroundStyle['background-color'];
+        this.reiniciar();
       }
-      this.nextQuestion();
     }
+  }
+
+  async reiniciar() {
+    if (!this.topicId) {
+      return;
+    }
+    this.questions = await this.theorySrv.getQuestions(this.topicId, 5);
+    this.theorySrv.suffleQuestions(this.questions);
+    this.finished = false;
+    this.state = 'pristine';
+    this.lives = 10;
+    this.correctCounter = 0;
+    this.missedQuestions = [];
+    this.currentChoice = null;
+    this.currentQuestion = null;
+    this.nextQuestion();
   }
 
   goToTopicSelection() {
@@ -75,7 +90,16 @@ export class QuestionsComponent implements OnInit {
         this.finished = true;
       }
     }
-    this.scrollTop();
+    if (this.finished) {
+      if (this.missedQuestions.length == 0) {
+        ModuloSonido.play('/assets/sounds/newscore.mp3');
+      } else {
+        ModuloSonido.play('/assets/sounds/success.mp3');
+      }
+    }
+    setTimeout(() => {
+      this.scrollTop();
+    });
   }
 
   selectChoice(choice: ChoiceCardData) {
@@ -118,7 +142,11 @@ export class QuestionsComponent implements OnInit {
       }
     }
     setTimeout(() => {
-      this.scrollDown();
+      if (this.finished) {
+        this.scrollTop();
+      } else {
+        this.scrollDown();
+      }
     });
   }
 

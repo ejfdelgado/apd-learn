@@ -40,14 +40,24 @@
     <div class="container_vertical responsive_width_60" *ngIf="finished && lives > 0">
         <h1 class="margin_bottom_40">Felicitaciones!</h1>
         <div *ngIf="missedQuestions.length > 0">
-            <p>¿Deseas repasar las {{ missedQuestions.length }} preguntas incorrectas?</p>
-            <div class="container_horizontal gap_20">
-                <button class="btn btn-primary" (click)="repasarPreguntas()">Sí</button>
-                <button class="btn btn-primary" (click)="goToTopicSelection()">No</button>
+            <p *ngIf="missedQuestions.length == 1">¿Deseas repasar la pregunta incorrecta?</p>
+            <p *ngIf="missedQuestions.length > 1">¿Deseas repasar las <strong>{{ missedQuestions.length }}</strong>
+                preguntas incorrectas?</p>
+            <div class="container_horizontal gap_20 width_100">
+                <button class="btn btn-primary full" (click)="repasarPreguntas()">Sí</button>
+                <button class="btn btn-secondary full" (click)="goToTopicSelection()">No</button>
             </div>
+        </div>
+        <div *ngIf="missedQuestions.length == 0">
+            <p>Has respondido todas las preguntas correctamente.</p>
         </div>
     </div>
     <div class="container_vertical responsive_width_60" *ngIf="finished && lives == 0">
-
+        <h1 class="margin_bottom_40">Ups!</h1>
+        <p>Has agotado las vidas.</p>
+        <div class="container_horizontal gap_20 width_100">
+            <button class="btn btn-primary full" (click)="reiniciar()">Volver a intentar</button>
+            <button class="btn btn-secondary full" (click)="goToTopicSelection()">Salir</button>
+        </div>
     </div>
 </div>
