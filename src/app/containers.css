@@ -40,6 +40,10 @@
     padding: 10px;
 }
 
+.padding_20 {
+    padding: 20px;
+}
+
 .padding_30 {
     padding: 30px;
 }
@@ -89,7 +93,6 @@
 .container_card {
     border: 2px solid gray;
     border-radius: 10px;
-    padding: 10px;
 }
 
 .container_card.button {
