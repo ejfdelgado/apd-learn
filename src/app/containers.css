@@ -92,6 +92,22 @@
     padding: 10px;
 }
 
+.container_card.button {
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    transition: top 0.2s linear;
+}
+
+.relative {
+    position: relative;
+}
+
+.container_card.button:hover {
+    top: -5px;
+    
+}
+
 @media screen and (max-width: 1200px) {
     .responsive_width_60 {
         margin-left: 10vw;

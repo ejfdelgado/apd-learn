@@ -11,3 +11,21 @@ span,
 strong {
     font-family: 'Comfortaa', "Helvetica Neue", sans-serif;
 }
+
+.text_centered {
+    text-align: center;
+}
+
+.text_left {
+    text-align: left;
+}
+
+.text_right {
+    text-align: right;
+}
+
+h1 {}
+
+h2 {}
+
+h3 {}
