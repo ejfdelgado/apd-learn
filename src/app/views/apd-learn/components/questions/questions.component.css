@@ -48,6 +48,10 @@
     color: rgb(22, 104, 0);
 }
 
+.red {
+    color: red;
+}
+
 @media screen and (max-width: 1200px) {
     .progress_bar {
         width: 80%;

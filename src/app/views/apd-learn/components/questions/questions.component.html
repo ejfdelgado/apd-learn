@@ -6,7 +6,7 @@
                 <div class="progress_inner" [ngStyle]="{'width': getProgress()}"></div>
             </div>
         </div>
-        <div><mat-icon>heart</mat-icon></div>
+        <h1 class="container_horizontal red">{{ lives }}&nbsp;&nbsp;<mat-icon>favorite</mat-icon></h1>
     </div>
     <div class="container_vertical responsive_width_60" *ngIf="currentQuestion && !finished">
         <h1 class="margin_bottom_40">{{ currentQuestion.txt }}</h1>

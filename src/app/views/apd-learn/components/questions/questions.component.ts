@@ -23,6 +23,7 @@ export class QuestionsComponent implements OnInit {
   currentChoice: ChoiceCardData | null = null;
   topicStyle: { [key: string]: string } = {};
   finished: boolean = false;
+  lives: number = 10;
 
   state: "pristine" | "selected" | "correct" | "incorrect" = "pristine";
 
@@ -95,6 +96,10 @@ export class QuestionsComponent implements OnInit {
       this.state = 'correct';
     } else {
       this.state = 'incorrect';
+      this.lives -= 1;
+      if (this.lives == 0) {
+        this.finished = true;
+      }
     }
   }
 
