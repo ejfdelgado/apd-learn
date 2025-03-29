@@ -1,13 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-export interface TopicCardData {
-  id: string;
-  title: string;
-  description: string;
-  backgroundStyle: { [key: string]: string };
-  bodyStyle: { [key: string]: string };
-}
+import { TheoryService, TopicCardData } from 'src/app/services/theory.service';
 
 @Component({
   selector: 'app-theory',
@@ -21,47 +14,19 @@ export interface TopicCardData {
     './theory.component.css'
   ]
 })
-export class TheoryComponent {
-  public topics: TopicCardData[] = [
-    {
-      id: "1",
-      title: "Comunicaciones Aeronáuticas",
-      description: "Comunicaciones Aeronauticas",
-      backgroundStyle: {
-        "background-color": "#aee8ff",
-      },
-      bodyStyle: {
-        "background-image": 'url("https://storage.googleapis.com/labs-pro-public/svg/car.svg")',
-      }
-    },
-    {
-      id: "2",
-      title: "Comunicaciones Aeronáuticas",
-      description: "Comunicaciones Aeronauticas",
-      backgroundStyle: {
-        "background-color": "rgb(212 255 193)",
-      },
-      bodyStyle: {
-        "background-image": 'url("https://storage.googleapis.com/labs-pro-public/svg/mountain.svg")',
-      }
-    },
-    {
-      id: "3",
-      title: "Comunicaciones Aeronáuticas",
-      description: "Comunicaciones Aeronauticas",
-      backgroundStyle: {
-        "background-color": "#ffe3c7",
-      },
-      bodyStyle: {
-        "background-image": 'url("https://storage.googleapis.com/labs-pro-public/svg/volcano.svg")',
-      }
-    }
-  ];
+export class TheoryComponent implements OnInit {
+
+  public topics: TopicCardData[] = [];
 
   constructor(
     public router: Router,
+    public theorySrv: TheoryService,
   ) {
 
+  }
+
+  async ngOnInit() {
+    this.topics = await this.theorySrv.getDatabase();
   }
 
   navigate(topic: TopicCardData) {
