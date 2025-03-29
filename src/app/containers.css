@@ -171,7 +171,7 @@
 }
 
 @media screen and (max-width: 600px) {
-    .container_horizontal {
+    .container_horizontal.responsive_vertical {
         flex-direction: column;
     }
 

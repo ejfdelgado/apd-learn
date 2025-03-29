@@ -60,4 +60,8 @@ export class QuestionsComponent implements OnInit {
   selectChoice(choice: ChoiceCardData) {
     this.currentChoice = choice;
   }
+
+  getProgress() {
+    return "50%";
+  }
 }

@@ -1,8 +1,10 @@
 <div class="container_vertical padding_30 height_100" [ngStyle]="topic?.backgroundStyle">
     <div class="container_horizontal">
         <div class="manito" (click)="goToTopicSelection()"><mat-icon>close</mat-icon></div>
-        <div class="full">
-
+        <div class="full container_horizontal centered">
+            <div class="progress_bar">
+                <div class="progress_inner" [ngStyle]="{'width': getProgress()}"></div>
+            </div>
         </div>
         <div><mat-icon>heart</mat-icon></div>
     </div>
