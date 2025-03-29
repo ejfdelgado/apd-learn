@@ -23,6 +23,8 @@ export class QuestionsComponent implements OnInit {
   currentChoice: ChoiceCardData | null = null;
   topicStyle: { [key: string]: string } = {};
 
+  state: "pristine" | "selected" | "correct" | "incorrect" = "pristine";
+
   constructor(
     public router: Router,
     public theorySrv: TheoryService,
@@ -64,6 +66,7 @@ export class QuestionsComponent implements OnInit {
 
   selectChoice(choice: ChoiceCardData) {
     this.currentChoice = choice;
+    this.state = "selected";
   }
 
   getProgress() {
@@ -73,5 +76,20 @@ export class QuestionsComponent implements OnInit {
     const index = this.questions.indexOf(this.currentQuestion);
     const value = Math.ceil(100 * (index + 1) / this.questions.length);
     return value + "%";
+  }
+
+  async verifyChoice() {
+    if (!this.currentChoice) {
+      return;
+    }
+    if (this.currentChoice.correctness > 0) {
+      this.state = 'correct';
+    } else {
+      this.state = 'incorrect';
+    }
+  }
+
+  async continue() {
+
   }
 }

@@ -19,12 +19,12 @@
 }
 
 .btn.btn-primary:hover {
-    background-color: #208200;
+    background-color: #279e00;
 }
 
 .btn-secondary {
     background-color: #ffffff;
-    border: 2px solid #007bff;
+    border: 2px solid #1c6400;
     color: #000;
 }
 
@@ -40,12 +40,12 @@
 }
 
 .btn-danger {
-    background: #EE3000;
+    background: #ff3300;
     color: #fff;
 }
 
 .btn-danger:hover {
-    background: #8d1c00;
+    background: #be2600;
 }
 
 .btn.disabled {

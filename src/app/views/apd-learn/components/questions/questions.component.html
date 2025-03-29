@@ -18,7 +18,10 @@
             </div>
         </div>
         <div class="container_vertical margin_top_30">
-            <button class="btn btn-primary" [ngClass]="{'disabled': currentChoice==null}">Verificar</button>
+            <button *ngIf="['pristine', 'selected'].indexOf(state) >= 0" class="btn btn-primary"
+                [ngClass]="{'disabled': currentChoice==null}" (click)="verifyChoice()">Verificar</button>
+            <button *ngIf="state == 'correct'" class="btn btn-primary" (click)="continue()">Continuar</button>
+            <button *ngIf="state == 'incorrect'" class="btn btn-danger" (click)="continue()">OK</button>
         </div>
     </div>
 </div>
