@@ -4,6 +4,7 @@ import { ApdLearnComponent } from './apd-learn.component';
 import { TheoryComponent } from './components/theory/theory.component';
 import { ChecklistComponent } from './components/checklist/checklist.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { QuestionsComponent } from './components/questions/questions.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: 'checklist', component: ChecklistComponent, },
       { path: 'theory', component: TheoryComponent, },
       { path: 'leaderboard', component: LeaderboardComponent, },
+      { path: 'questions', component: QuestionsComponent, },
     ]
   }
 ];

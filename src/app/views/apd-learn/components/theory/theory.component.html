@@ -1,10 +1,11 @@
 <div class="container_vertical padding_30">
     <h1>Preguntas de entrenamiento</h1>
+    <p>Elige un tema para practirar.</p>
     <div class="container_vertical responsive_width_60">
         <div class="responsive_columns_3_2_1 gap_30 relative">
             <div *ngFor="let topic of topics"
                 class="container_card padding_30 button botton_shadow square container_vertical"
-                [ngStyle]="topic.backgroundStyle">
+                [ngStyle]="topic.backgroundStyle" (click)="navigate(topic)">
                 <h1 class="card_header black_subtitle">{{ topic.title }}</h1>
                 <div class="card_body full text_centered" [ngStyle]="topic.bodyStyle">
                 </div>

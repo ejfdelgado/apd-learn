@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface TopicCardData {
+  id: string;
   title: string;
   description: string;
   backgroundStyle: { [key: string]: string };
@@ -22,6 +24,7 @@ export interface TopicCardData {
 export class TheoryComponent {
   public topics: TopicCardData[] = [
     {
+      id: "1",
       title: "Comunicaciones Aeronáuticas",
       description: "Comunicaciones Aeronauticas",
       backgroundStyle: {
@@ -32,6 +35,7 @@ export class TheoryComponent {
       }
     },
     {
+      id: "2",
       title: "Comunicaciones Aeronáuticas",
       description: "Comunicaciones Aeronauticas",
       backgroundStyle: {
@@ -42,6 +46,7 @@ export class TheoryComponent {
       }
     },
     {
+      id: "3",
       title: "Comunicaciones Aeronáuticas",
       description: "Comunicaciones Aeronauticas",
       backgroundStyle: {
@@ -53,7 +58,13 @@ export class TheoryComponent {
     }
   ];
 
-  constructor() {
+  constructor(
+    public router: Router,
+  ) {
 
+  }
+
+  navigate(topic: TopicCardData) {
+    this.router.navigate(['apd-learn', "questions"], { queryParams: { "topic": topic.id } });
   }
 }

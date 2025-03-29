@@ -19,13 +19,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ChecklistComponent } from './components/checklist/checklist.component';
 import { TheoryComponent } from './components/theory/theory.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { QuestionsComponent } from './components/questions/questions.component';
 
 @NgModule({
   declarations: [
     ApdLearnComponent,
     ChecklistComponent,
     TheoryComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    QuestionsComponent
   ],
   imports: [
     CommonModule,
