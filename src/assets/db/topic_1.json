@@ -8,7 +8,7 @@
             },
             {
                 "txt": "VHF Muy Alta Frecuencia.",
-                "correctness": 0
+                "correctness": 100
             },
             {
                 "txt": "UHF Ultra Alta Frecuencia.",
@@ -25,7 +25,7 @@
             },
             {
                 "txt": "121,5 MHz.",
-                "correctness": 0
+                "correctness": 100
             },
             {
                 "txt": "122,9 KHz.",
@@ -42,7 +42,7 @@
             },
             {
                 "txt": "En las diferentes cartas aeronáuticas publicadas en el AIP – AD Aeródromo.",
-                "correctness": 0
+                "correctness": 100
             },
             {
                 "txt": "Directamente en las instalaciones del aeródromo para confirmar su dial.",
@@ -63,7 +63,7 @@
             },
             {
                 "txt": "Cuando dos señales en la misma onda se interrumpen entre sí.",
-                "correctness": 0
+                "correctness": 100
             }
         ]
     },
@@ -80,7 +80,7 @@
             },
             {
                 "txt": "Las dos opciones son correctas.",
-                "correctness": 0
+                "correctness": 100
             }
         ]
     },
@@ -97,7 +97,7 @@
             },
             {
                 "txt": "Alfabeto Fonético Internacional OACI",
-                "correctness": 0
+                "correctness": 100
             }
         ]
     },
@@ -110,7 +110,7 @@
             },
             {
                 "txt": "Victor – Uniform – Eco – Lima – Oscar.",
-                "correctness": 0
+                "correctness": 100
             },
             {
                 "txt": "Vision – Uniform – Eco - Liceo – Omar.",
@@ -127,7 +127,7 @@
             },
             {
                 "txt": "Exrey",
-                "correctness": 0
+                "correctness": 100
             },
             {
                 "txt": "Extrey",
@@ -144,7 +144,7 @@
             },
             {
                 "txt": "Se debe colacionar la información.",
-                "correctness": 0
+                "correctness": 100
             },
             {
                 "txt": "Respondiendo “RECIBIDO” al terminar de escucharla.",
@@ -157,7 +157,7 @@
         "choices": [
             {
                 "txt": "Dudas, confusión y ambigüedad.",
-                "correctness": 0
+                "correctness": 100
             },
             {
                 "txt": "Que la información sea veraz.",
@@ -174,7 +174,7 @@
         "choices": [
             {
                 "txt": "Señal de aviso de Urgencia.",
-                "correctness": 0
+                "correctness": 100
             },
             {
                 "txt": "Señal de aviso de emergencia.",
@@ -195,7 +195,7 @@
             },
             {
                 "txt": "Señal de aviso de emergencia.",
-                "correctness": 0
+                "correctness": 100
             },
             {
                 "txt": "Aviso de información aeronáutica.",
@@ -208,7 +208,7 @@
         "choices": [
             {
                 "txt": "Mayday, mayday, mayday",
-                "correctness": 0
+                "correctness": 100
             },
             {
                 "txt": "Pan, pan, pan",
@@ -229,7 +229,7 @@
             },
             {
                 "txt": "Pan, pan, pan",
-                "correctness": 0
+                "correctness": 100
             },
             {
                 "txt": "Sos, sos, sos",

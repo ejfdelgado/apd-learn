@@ -24,13 +24,53 @@ export interface QuestionCardData {
 })
 export class TheoryService {
 
+    public topics: TopicCardData[] | null = null;
+
     constructor(private httpSrv: HttpService) { }
 
-    async getDatabase(): Promise<any> {
-        return this.httpSrv.get("assets/db/topics.json");
+    shuffle(array: Array<any>) {
+        let currentIndex = array.length, randomIndex;
+        // While there remain elements to shuffle.
+        while (currentIndex != 0) {
+            // Pick a remaining element.
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+        }
+        return array;
+    }
+
+    async getDatabase(): Promise<TopicCardData[]> {
+        if (this.topics == null) {
+            this.topics = await this.httpSrv.get("assets/db/topics.json");
+        }
+        return this.topics as any;
+    }
+
+    async getTopic(id: string): Promise<TopicCardData | null> {
+        const database = await this.getDatabase();
+        const filtered = database.filter((topic) => {
+            return topic.id == id;
+        });
+        if (filtered.length > 0) {
+            return filtered[0];
+        }
+        return null;
+    }
+
+    suffleQuestions(temp: QuestionCardData[]) {
+        for (let i = 0; i < temp.length; i++) {
+            const question = temp[i];
+            this.shuffle(question.choices);
+        }
+        this.shuffle(temp);
     }
 
     async getQuestions(fileName: string): Promise<any> {
-        return this.httpSrv.get(`assets/db/${fileName}`);
+        const temp: any = this.httpSrv.get(`assets/db/${fileName}`);
+        return temp;
     }
 }

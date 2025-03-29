@@ -32,6 +32,7 @@ for (let i = 0; i < lines.length; i++) {
                 console.log(JSON.stringify(questions, null, 4));
                 throw new Error(`At line ${i} a number was expected but found ${line}`);
             }
+            currentQuestion.choices[answer-1].correctness = 100;
             state = "question";
         }
     }

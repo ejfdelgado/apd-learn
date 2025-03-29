@@ -118,16 +118,21 @@ mat-form-field.full_height .mat-form-field-subscript-wrapper {
   color: white;
 }
 
-app-llm-knowledge {
+.app-root {
   position: absolute;
+  top: 0;
   bottom: 0;
-  top: 90px;
   left: 0;
   right: 0;
 }
 
-app-llm-knowledge app-knowledge-list .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  background-color: white;
+app-questions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 80px;
+  overflow-y: scroll;
 }
 
 /* mat dialogs */

@@ -36,6 +36,9 @@ export class ApdLearnComponent extends BaseComponent implements OnInit, OnDestro
   statusBarTextStyle: { [key: string]: string } = {
     "color": "black",
   };
+  statusBarBackgroundStyle: { [key: string]: string } = {
+    "background-color": "#efefef",
+  };
   statusBarUserOptions: MyUserOptionsData = {
     editEmail: true,
     editName: true,
