@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
     '../../../../fonts.css',
     '../../../../forms.css',
     '../../../../popup.css',
+    '../../../../effects.css',
     './theory.component.css'
   ]
 })
