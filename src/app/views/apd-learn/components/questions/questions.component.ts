@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { QuestionCardData, TheoryService, TopicCardData } from 'src/app/services/theory.service';
+import { ChoiceCardData, QuestionCardData, TheoryService, TopicCardData } from 'src/app/services/theory.service';
 
 @Component({
   selector: 'app-questions',
@@ -19,6 +19,8 @@ export class QuestionsComponent implements OnInit {
   topic: TopicCardData | null = null;
   questions: QuestionCardData[] = [];
   currentQuestion: QuestionCardData | null = null;
+  currentChoice: ChoiceCardData | null = null;
+
   constructor(
     public router: Router,
     public theorySrv: TheoryService,
@@ -53,5 +55,9 @@ export class QuestionsComponent implements OnInit {
         this.currentQuestion = this.questions[index + 1];
       }
     }
+  }
+
+  selectChoice(choice: ChoiceCardData) {
+    this.currentChoice = choice;
   }
 }

@@ -2,3 +2,7 @@
     background-color: white;
     ;
 }
+
+.container_card.selected {
+    background-color: #fff9bf;
+}
