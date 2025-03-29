@@ -26,6 +26,28 @@
     border-radius: 29px;
 }
 
+.hint_card {
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.hint_card h3 {
+    display: flex;
+    gap: 20px;
+    font-size: 1.5em;
+}
+
+.hint_card.bad {
+    background-color: rgb(255 196 196);
+    color: red;
+}
+
+.hint_card.good {
+    background-color: rgb(221 255 212);
+    color: rgb(22, 104, 0);
+}
+
 @media screen and (max-width: 1200px) {
     .progress_bar {
         width: 80%;

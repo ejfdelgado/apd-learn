@@ -1,4 +1,4 @@
-<div class="container_vertical padding_30 height_100" [ngStyle]="topicStyle">
+<div class="container_vertical padding_30 min_height_100" [ngStyle]="topicStyle">
     <div class="container_horizontal">
         <div class="manito" (click)="goToTopicSelection()"><mat-icon>close</mat-icon></div>
         <div class="full container_horizontal centered">
@@ -18,6 +18,14 @@
             </div>
         </div>
         <div class="container_vertical margin_top_30">
+            <div *ngIf="state == 'incorrect'" class="hint_card bad">
+                <h3><mat-icon>cancel</mat-icon> Incorrecto</h3>
+                <p>Respuesta correcta es:</p>
+                <h3>{{ getCorrectAnswer() }}</h3>
+            </div>
+            <div *ngIf="state == 'correct'" class="hint_card good">
+                <h3><mat-icon>check_circle</mat-icon> Correcto!</h3>
+            </div>
             <button *ngIf="['pristine', 'selected'].indexOf(state) >= 0" class="btn btn-primary"
                 [ngClass]="{'disabled': currentChoice==null}" (click)="verifyChoice()">Verificar</button>
             <button *ngIf="state == 'correct'" class="btn btn-primary" (click)="continue()">Continuar</button>

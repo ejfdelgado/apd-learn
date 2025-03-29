@@ -89,6 +89,19 @@ export class QuestionsComponent implements OnInit {
     }
   }
 
+  getCorrectAnswer() {
+    if (!this.currentQuestion) {
+      return "";
+    }
+    const correct = this.currentQuestion.choices.filter((choice) => {
+      return choice.correctness > 0
+    });
+    if (correct.length == 0) {
+      return "";
+    }
+    return correct[0].txt;
+  }
+
   async continue() {
 
   }

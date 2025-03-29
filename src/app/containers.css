@@ -18,6 +18,10 @@
     flex-direction: row;
 }
 
+.min_height_100 {
+    min-height: 100%;
+}
+
 .height_100 {
     height: 100%;
 }
