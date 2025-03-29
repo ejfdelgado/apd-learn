@@ -1,18 +1,55 @@
 .btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    border: 4px solid gray;
+}
+
+.btn-primary {
+    background-color: #32c800;
+    color: #fff;
+}
+
+.btn.btn-primary:hover {
+    background-color: #208200;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    border: 2px solid #007bff;
+    color: #000;
+}
+
+.btn.btn-secondary:hover {
+    background-color: #acd4ff;
+    color: #000;
 }
 
 .btn mat-icon {
     font-size: 1.4em;
     height: 18px;
     width: 18px;
+}
+
+.btn-danger {
+    background: #EE3000;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: #8d1c00;
+}
+
+.btn.disabled {
+    background: #CFCFCF;
+    color: #7e7e7e;
+    pointer-events: none;
 }

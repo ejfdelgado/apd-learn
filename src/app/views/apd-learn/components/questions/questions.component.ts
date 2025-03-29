@@ -11,6 +11,7 @@ import { ChoiceCardData, QuestionCardData, TheoryService, TopicCardData } from '
     '../../../../forms.css',
     '../../../../popup.css',
     '../../../../effects.css',
+    '../../../../buttons.css',
     './questions.component.css'
   ]
 })
@@ -20,6 +21,7 @@ export class QuestionsComponent implements OnInit {
   questions: QuestionCardData[] = [];
   currentQuestion: QuestionCardData | null = null;
   currentChoice: ChoiceCardData | null = null;
+  topicStyle: { [key: string]: string } = {};
 
   constructor(
     public router: Router,
@@ -35,6 +37,9 @@ export class QuestionsComponent implements OnInit {
       this.questions = await this.theorySrv.getQuestions(this.topicId);
       this.theorySrv.suffleQuestions(this.questions);
       this.topic = await this.theorySrv.getTopic(this.topicId);
+      if (this.topic) {
+        this.topicStyle['background-color'] = this.topic.backgroundStyle['background-color'];
+      }
       this.nextQuestion();
     }
   }
@@ -62,6 +67,11 @@ export class QuestionsComponent implements OnInit {
   }
 
   getProgress() {
-    return "50%";
+    if (this.currentQuestion == null || this.questions.length == 0) {
+      return "0%";
+    }
+    const index = this.questions.indexOf(this.currentQuestion);
+    const value = Math.ceil(100 * (index + 1) / this.questions.length);
+    return value + "%";
   }
 }

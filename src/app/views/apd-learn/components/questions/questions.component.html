@@ -1,4 +1,4 @@
-<div class="container_vertical padding_30 height_100" [ngStyle]="topic?.backgroundStyle">
+<div class="container_vertical padding_30 height_100" [ngStyle]="topicStyle">
     <div class="container_horizontal">
         <div class="manito" (click)="goToTopicSelection()"><mat-icon>close</mat-icon></div>
         <div class="full container_horizontal centered">
@@ -16,6 +16,9 @@
                 class="container_card padding_30 button botton_shadow container_vertical white_background">
                 <h2 class="card_footer black_subtitle">{{ choice.txt }}</h2>
             </div>
+        </div>
+        <div class="container_vertical margin_top_30">
+            <button class="btn btn-primary" [ngClass]="{'disabled': currentChoice==null}">Verificar</button>
         </div>
     </div>
 </div>
