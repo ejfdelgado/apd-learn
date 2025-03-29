@@ -1,6 +1,6 @@
 {
   "name": "apd-learn",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "main": "app.mjs",
   "scripts": {
@@ -112,7 +112,7 @@
     "@types/three": "^0.174.0",
     "@types/uuid": "^10.0.0",
     "@types/webrtc": "^0.0.43",
-    "ejflab-front-lib": "^2.8.4",
+    "ejflab-front-lib": "^2.8.5",
     "firebase-tools": "^13.13.1",
     "latlon-geohash": "^2.0.0",
     "ngx-material-timepicker": "^13.1.1",
