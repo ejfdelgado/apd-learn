@@ -26,6 +26,7 @@ export class QuestionsComponent implements OnInit {
   finished: boolean = false;
   lives: number = 10;
   correctCounter: number = 0;
+  missedQuestions: QuestionCardData[] = [];
 
   state: "pristine" | "selected" | "correct" | "incorrect" = "pristine";
 
@@ -45,7 +46,7 @@ export class QuestionsComponent implements OnInit {
       '/assets/sounds/mario-coin.mp3',
     ]);
     if (this.topicId) {
-      this.questions = await this.theorySrv.getQuestions(this.topicId);
+      this.questions = await this.theorySrv.getQuestions(this.topicId, 5);
       this.theorySrv.suffleQuestions(this.questions);
       this.topic = await this.theorySrv.getTopic(this.topicId);
       if (this.topic) {
@@ -112,6 +113,9 @@ export class QuestionsComponent implements OnInit {
       if (this.lives == 0) {
         this.finished = true;
       }
+      if (this.currentQuestion) {
+        this.missedQuestions.push(this.currentQuestion);
+      }
     }
     setTimeout(() => {
       this.scrollDown();
@@ -144,5 +148,23 @@ export class QuestionsComponent implements OnInit {
   scrollDown() {
     const nativeElement = this.elementRef.nativeElement;
     nativeElement.scrollTop = nativeElement.scrollHeight;
+  }
+
+  repasarPreguntas() {
+    let firstQuestion = null;
+    for (let i = 0; i < this.missedQuestions.length; i++) {
+      const missed = this.missedQuestions[i];
+      const newQuestion = {
+        txt: missed.txt,
+        choices: missed.choices,
+      };
+      if (firstQuestion == null) {
+        firstQuestion = newQuestion;
+      }
+      this.questions.push(newQuestion);
+    }
+    this.currentQuestion = firstQuestion;
+    this.missedQuestions = [];
+    this.finished = false;
   }
 }

@@ -6,9 +6,11 @@
                 <div class="progress_inner" [ngStyle]="{'width': getProgress()}"></div>
             </div>
         </div>
-        <h1 class="container_horizontal vcentered white_subtitle yellow margin_bottom_0 relative"><span class="relative top_2">{{ correctCounter
+        <h1 class="container_horizontal vcentered white_subtitle yellow margin_bottom_0 relative"><span
+                class="relative top_2">{{ correctCounter
                 }}&nbsp;&nbsp;</span><mat-icon>emoji_events</mat-icon></h1>
-        <h1 class="container_horizontal vcentered white_subtitle red margin_bottom_0 relative"><span class="relative top_2">{{ lives
+        <h1 class="container_horizontal vcentered white_subtitle red margin_bottom_0 relative"><span
+                class="relative top_2">{{ lives
                 }}&nbsp;&nbsp;</span><mat-icon>favorite</mat-icon></h1>
     </div>
     <div class="container_vertical responsive_width_60" *ngIf="currentQuestion && !finished">
@@ -34,5 +36,18 @@
             <button *ngIf="state == 'correct'" class="btn btn-primary" (click)="continue()">Continuar</button>
             <button *ngIf="state == 'incorrect'" class="btn btn-danger" (click)="continue()">OK</button>
         </div>
+    </div>
+    <div class="container_vertical responsive_width_60" *ngIf="finished && lives > 0">
+        <h1 class="margin_bottom_40">Felicitaciones!</h1>
+        <div *ngIf="missedQuestions.length > 0">
+            <p>¿Deseas repasar las {{ missedQuestions.length }} preguntas incorrectas?</p>
+            <div class="container_horizontal gap_20">
+                <button class="btn btn-primary" (click)="repasarPreguntas()">Sí</button>
+                <button class="btn btn-primary" (click)="goToTopicSelection()">No</button>
+            </div>
+        </div>
+    </div>
+    <div class="container_vertical responsive_width_60" *ngIf="finished && lives == 0">
+
     </div>
 </div>

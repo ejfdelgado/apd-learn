@@ -69,8 +69,11 @@ export class TheoryService {
         this.shuffle(temp);
     }
 
-    async getQuestions(fileName: string): Promise<any> {
-        const temp: any = this.httpSrv.get(`assets/db/${fileName}`);
+    async getQuestions(fileName: string, maxQuestions?: number): Promise<any> {
+        let temp: any = await this.httpSrv.get(`assets/db/${fileName}`);
+        if (typeof maxQuestions == "number") {
+            temp = temp.splice(0, maxQuestions);
+        }
         return temp;
     }
 }
