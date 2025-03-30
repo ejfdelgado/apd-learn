@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChoiceCardData, QuestionCardData, TheoryService, TopicCardData } from 'src/app/services/theory.service';
 import { ModuloSonido } from '@ejfdelgado/ejflab-common/src/ModuloSonido';
@@ -17,6 +17,7 @@ import { ModuloSonido } from '@ejfdelgado/ejflab-common/src/ModuloSonido';
   ]
 })
 export class QuestionsComponent implements OnInit {
+  @ViewChild('scrolled_body') scrollPanel: ElementRef<HTMLDivElement>;
   topicId: string | null;
   topic: TopicCardData | null = null;
   questions: QuestionCardData[] = [];
@@ -30,7 +31,6 @@ export class QuestionsComponent implements OnInit {
   state: "pristine" | "selected" | "correct" | "incorrect" = "pristine";
 
   constructor(
-    private elementRef: ElementRef,
     public router: Router,
     public theorySrv: TheoryService,
   ) {
@@ -169,12 +169,12 @@ export class QuestionsComponent implements OnInit {
   }
 
   scrollTop() {
-    const nativeElement = this.elementRef.nativeElement;
+    const nativeElement = this.scrollPanel.nativeElement;
     nativeElement.scrollTop = 0;
   }
 
   scrollDown() {
-    const nativeElement = this.elementRef.nativeElement;
+    const nativeElement = this.scrollPanel.nativeElement;
     nativeElement.scrollTop = nativeElement.scrollHeight;
   }
 

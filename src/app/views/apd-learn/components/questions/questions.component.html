@@ -1,5 +1,5 @@
-<div class="container_vertical padding_30_25_20 min_height_100" [ngStyle]="topicStyle">
-    <div class="padding_bottom_20 container_horizontal vcentered gap_10" [ngStyle]="topicStyle">
+<div class="container_vertical parent_status_fixed padding_30_25_20 min_height_100" [ngStyle]="topicStyle">
+    <div class="padding_30_25_20 status_fixed container_horizontal vcentered gap_10" [ngStyle]="topicStyle">
         <div class="manito" (click)="goToTopicSelection()"><mat-icon>close</mat-icon></div>
         <div class="full container_horizontal vcentered centered">
             <div class="progress_bar">
@@ -13,51 +13,55 @@
                 class="relative top_2">{{ lives
                 }}&nbsp;&nbsp;</span><mat-icon>favorite</mat-icon></h1>
     </div>
-    <div class="container_vertical responsive_width_60" *ngIf="currentQuestion && !finished">
-        <h1 class="margin_bottom_40">{{ currentQuestion.txt }}</h1>
-        <div class="responsive_columns_2_2_1 gap_30 relative">
-            <div *ngFor="let choice of currentQuestion.choices" (click)="selectChoice(choice)"
-                [ngClass]="{'selected': choice == currentChoice}"
-                class="container_card padding_30_20_10 button botton_shadow container_vertical white_background">
-                <h2 class="card_footer black_subtitle">{{ choice.txt }}</h2>
+    <div #scrolled_body class="below_status_fixed padding_30_25_20">
+        <div class="container_vertical responsive_width_60" *ngIf="currentQuestion && !finished">
+            <h1 class="margin_bottom_40">{{ currentQuestion.txt }}</h1>
+            <div class="responsive_columns_2_2_1 gap_30 relative">
+                <div *ngFor="let choice of currentQuestion.choices" (click)="selectChoice(choice)"
+                    [ngClass]="{'selected': choice == currentChoice}"
+                    class="container_card padding_30_20_10 button botton_shadow container_vertical white_background">
+                    <h2 class="card_footer black_subtitle">{{ choice.txt }}</h2>
+                </div>
+            </div>
+            <div class="container_vertical margin_top_30">
+                <div *ngIf="state == 'incorrect'" class="hint_card bad">
+                    <h3><mat-icon>cancel</mat-icon> Incorrecto</h3>
+                    <p>Respuesta correcta es:</p>
+                    <h3>{{ getCorrectAnswer() }}</h3>
+                </div>
+                <div *ngIf="state == 'correct'" class="hint_card good">
+                    <h3><mat-icon>check_circle</mat-icon> Correcto!</h3>
+                </div>
+                <button *ngIf="['pristine', 'selected'].indexOf(state) >= 0" class="btn btn-primary"
+                    [ngClass]="{'disabled': currentChoice==null}" (click)="verifyChoice()">Verificar</button>
+                <button *ngIf="state == 'correct'" class="btn btn-primary" (click)="continue()">Continuar</button>
+                <button *ngIf="state == 'incorrect'" class="btn btn-danger" (click)="continue()">OK</button>
             </div>
         </div>
-        <div class="container_vertical margin_top_30">
-            <div *ngIf="state == 'incorrect'" class="hint_card bad">
-                <h3><mat-icon>cancel</mat-icon> Incorrecto</h3>
-                <p>Respuesta correcta es:</p>
-                <h3>{{ getCorrectAnswer() }}</h3>
+        <div class="container_vertical responsive_width_60" *ngIf="finished && lives > 0">
+            <h1 class="margin_bottom_40">Felicitaciones!</h1>
+            <div *ngIf="missedQuestions.length > 0">
+                <p *ngIf="missedQuestions.length == 1" class="margin_bottom_30">¿Deseas repasar la pregunta incorrecta?
+                </p>
+                <p *ngIf="missedQuestions.length > 1" class="margin_bottom_30">¿Deseas repasar las <strong>{{
+                        missedQuestions.length }}</strong>
+                    preguntas incorrectas?</p>
+                <div class="container_horizontal gap_20 width_100">
+                    <button class="btn btn-primary full" (click)="repasarPreguntas()">Sí</button>
+                    <button class="btn btn-secondary full" (click)="goToTopicSelection()">No</button>
+                </div>
             </div>
-            <div *ngIf="state == 'correct'" class="hint_card good">
-                <h3><mat-icon>check_circle</mat-icon> Correcto!</h3>
+            <div *ngIf="missedQuestions.length == 0">
+                <p>Has respondido todas las preguntas correctamente.</p>
             </div>
-            <button *ngIf="['pristine', 'selected'].indexOf(state) >= 0" class="btn btn-primary"
-                [ngClass]="{'disabled': currentChoice==null}" (click)="verifyChoice()">Verificar</button>
-            <button *ngIf="state == 'correct'" class="btn btn-primary" (click)="continue()">Continuar</button>
-            <button *ngIf="state == 'incorrect'" class="btn btn-danger" (click)="continue()">OK</button>
         </div>
-    </div>
-    <div class="container_vertical responsive_width_60" *ngIf="finished && lives > 0">
-        <h1 class="margin_bottom_40">Felicitaciones!</h1>
-        <div *ngIf="missedQuestions.length > 0">
-            <p *ngIf="missedQuestions.length == 1">¿Deseas repasar la pregunta incorrecta?</p>
-            <p *ngIf="missedQuestions.length > 1">¿Deseas repasar las <strong>{{ missedQuestions.length }}</strong>
-                preguntas incorrectas?</p>
+        <div class="container_vertical responsive_width_60" *ngIf="finished && lives == 0">
+            <h1 class="margin_bottom_40">Ups!</h1>
+            <p class="margin_bottom_30">Has agotado las vidas.</p>
             <div class="container_horizontal gap_20 width_100">
-                <button class="btn btn-primary full" (click)="repasarPreguntas()">Sí</button>
-                <button class="btn btn-secondary full" (click)="goToTopicSelection()">No</button>
+                <button class="btn btn-primary full" (click)="reiniciar()">Volver a intentar</button>
+                <button class="btn btn-secondary full" (click)="goToTopicSelection()">Salir</button>
             </div>
-        </div>
-        <div *ngIf="missedQuestions.length == 0">
-            <p>Has respondido todas las preguntas correctamente.</p>
-        </div>
-    </div>
-    <div class="container_vertical responsive_width_60" *ngIf="finished && lives == 0">
-        <h1 class="margin_bottom_40">Ups!</h1>
-        <p>Has agotado las vidas.</p>
-        <div class="container_horizontal gap_20 width_100">
-            <button class="btn btn-primary full" (click)="reiniciar()">Volver a intentar</button>
-            <button class="btn btn-secondary full" (click)="goToTopicSelection()">Salir</button>
         </div>
     </div>
 </div>

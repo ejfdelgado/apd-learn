@@ -61,6 +61,11 @@
 
 .parent_status_fixed {
     padding-top: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 
 .status_fixed {
@@ -71,13 +76,28 @@
 }
 
 .below_status_fixed {
-    margin-top: 75px;
+    top: 92px;
+    bottom: 30px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
 }
 
 @media screen and (max-width: 1200px) {
     .progress_bar {
         width: 80%;
     }
+
+    .below_status_fixed {
+        top: 92px;
+        bottom: 25px;
+    }
 }
 
-@media screen and (max-width: 600px) {}
+@media screen and (max-width: 600px) {
+    .below_status_fixed {
+        top: 72px;
+        bottom: 20px;
+    }
+}

@@ -126,7 +126,27 @@ mat-form-field.full_height .mat-form-field-subscript-wrapper {
   right: 0;
 }
 
+app-root {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  overflow-y: hidden;
+}
+
 app-questions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 80px;
+  overflow-y: hidden;
+}
+
+app-theory,
+app-leaderboard,
+app-checklist {
   position: absolute;
   left: 0;
   right: 0;
