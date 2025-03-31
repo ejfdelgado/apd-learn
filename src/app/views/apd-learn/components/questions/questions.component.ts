@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChoiceCardData, QuestionCardData, TheoryService, TopicCardData } from 'src/app/services/theory.service';
 import { ModuloSonido } from '@ejfdelgado/ejflab-common/src/ModuloSonido';
@@ -33,6 +33,7 @@ export class QuestionsComponent implements OnInit {
   constructor(
     public router: Router,
     public theorySrv: TheoryService,
+    public cdr: ChangeDetectorRef,
   ) {
 
   }

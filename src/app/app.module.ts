@@ -61,7 +61,7 @@ if (location.hostname == "localhost") {
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
-    { provide: 'appVersion', useValue: '1.2.1' },
+    { provide: 'appVersion', useValue: '1.2.2' },
     { provide: 'authProvider', useValue: 'google' },
     { provide: 'msTenant', useValue: '' },
     { provide: 'msClientId', useValue: '' },
