@@ -36,8 +36,8 @@
 
 .btn mat-icon {
     font-size: 1.4em;
-    height: 18px;
-    width: 18px;
+    height: 26px;
+    width: 26px;
 }
 
 .btn-danger {
@@ -55,4 +55,5 @@
     color: #7e7e7e;
     pointer-events: none;
     border: 4px solid gray;
+    cursor:not-allowed;
 }

@@ -2,17 +2,13 @@ import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@an
 import { Router } from '@angular/router';
 import { ChoiceCardData, QuestionCardData, TheoryService, TopicCardData } from 'src/app/services/theory.service';
 import { ModuloSonido } from '@ejfdelgado/ejflab-common/src/ModuloSonido';
+import { ModalService } from 'ejflab-front-lib';
+import { MyConstants } from '@ejfdelgado/ejflab-common/src/MyConstants';
 
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
   styleUrls: [
-    '../../../../containers.css',
-    '../../../../fonts.css',
-    '../../../../forms.css',
-    '../../../../popup.css',
-    '../../../../effects.css',
-    '../../../../buttons.css',
     './questions.component.css'
   ]
 })
@@ -34,6 +30,7 @@ export class QuestionsComponent implements OnInit {
     public router: Router,
     public theorySrv: TheoryService,
     public cdr: ChangeDetectorRef,
+    public modalSrv: ModalService,
   ) {
 
   }
@@ -72,7 +69,15 @@ export class QuestionsComponent implements OnInit {
     this.nextQuestion();
   }
 
-  goToTopicSelection() {
+  async goToTopicSelection() {
+    const confirmed = await this.modalSrv.confirm({
+      title: "Un segundo...",
+      txt: "¿Estás seguro que deseas salir?",
+      imageUrl: `${MyConstants.SRV_ROOT}assets/img/ask-icon.svg`,
+    });
+    if (!confirmed) {
+      return;
+    }
     this.router.navigate(["apd-learn", "theory"]);
   }
 

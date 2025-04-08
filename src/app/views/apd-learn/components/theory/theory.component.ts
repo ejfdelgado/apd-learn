@@ -7,11 +7,6 @@ import { UtilityService } from 'src/app/services/utility.service';
   selector: 'app-theory',
   templateUrl: './theory.component.html',
   styleUrls: [
-    '../../../../containers.css',
-    '../../../../fonts.css',
-    '../../../../forms.css',
-    '../../../../popup.css',
-    '../../../../effects.css',
     './theory.component.css'
   ]
 })

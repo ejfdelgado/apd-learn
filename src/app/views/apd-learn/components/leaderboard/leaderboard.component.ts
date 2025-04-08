@@ -4,10 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
   styleUrls: [
-    '../../../../containers.css',
-    '../../../../fonts.css',
-    '../../../../forms.css',
-    '../../../../popup.css',
     './leaderboard.component.css'
   ]
 })
