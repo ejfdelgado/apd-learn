@@ -17,6 +17,10 @@ body {
   font-family: 'Comfortaa', "Helvetica Neue", sans-serif;
 }
 
+.mat-mdc-dialog-surface {
+  border-radius: 15px !important;
+}
+
 body {
   margin: 0;
   font-family: 'Comfortaa', "Helvetica Neue", sans-serif;
