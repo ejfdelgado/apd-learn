@@ -1,12 +1,14 @@
 <div class="container_vertical padding_30 local_full">
-    <h1>Puntuaciones</h1>
+    <h1 class="text_centered">Puntuación personal</h1>
     <div class="inner_canvas full container_vertical">
         <div class="container_vertical responsive_width_60">
             <div class="container_horizontal centered">
                 <div class="my_profile" [innerHtml]="svgRadarSvg"></div>
             </div>
             <div class="container_vertical gap_10">
-                <div class="topic_item container_horizontal vcentered gap_20" *ngFor="let topic of topics">
+                <div class="topic_item noselect manito container_horizontal vcentered gap_20"
+                    *ngFor="let topic of topics" [ngClass]="{'selected': topic.id == selectedTopic?.id}"
+                    (click)="selectTopic(topic)">
                     <div class="topic_icon" [ngStyle]="{'background-image':'url('+topic.image+')'}"></div>
                     <div class="topic_label full">
                         &nbsp;
@@ -18,4 +20,6 @@
             </div>
         </div>
     </div>
+    <div class="container_horizontal">&nbsp;</div>
+    <h1 class="margin_bottom_0 text_centered">Puntuación global en<br><strong>{{ selectedTopic?.label }}</strong></h1>
 </div>

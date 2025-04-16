@@ -10,7 +10,7 @@ import { LeaderBoardService, LeaderData, MyScoreData, TopicData } from 'src/app/
   ]
 })
 export class LeaderboardComponent implements OnInit {
-  selectedTopic: string = "";
+  selectedTopic: TopicData | null = null;
   me: MyScoreData | null = null;
   others: LeaderData[] = [];
   svgRadarSvg: SafeHtml | null = null;
@@ -42,8 +42,8 @@ export class LeaderboardComponent implements OnInit {
       topics: this.topics
     }));
 
-    this.selectedTopic = this.topics[0].id;
-    this.others = await this.leaderBoardSrv.loadLeaderBoard(this.selectedTopic);
+    this.selectedTopic = this.topics[0];
+    this.others = await this.leaderBoardSrv.loadLeaderBoard(this.selectedTopic.id);
   }
 
   getMyStyleByTopic(topic: string): any {
@@ -60,6 +60,10 @@ export class LeaderboardComponent implements OnInit {
       return Math.round(100 * this.me.topics[topic]);
     }
     return 0;
+  }
+
+  selectTopic(topic: TopicData) {
+    this.selectedTopic = topic;
   }
 
   createRadarChart(values: number[], options: any = {}) {

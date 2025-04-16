@@ -6,12 +6,25 @@
     right: 0;
 }
 
+.topic_item {
+    padding: 15px;
+    border-radius: 15px;
+}
+
 .topic_item .topic_icon {
     height: 50px;
     width: 50px;
     border: 3px solid rgb(159, 210, 255);
     background-size: cover;
     border-radius: 100%;
+}
+
+.topic_item.selected {
+    background-color: #d4efff;
+}
+
+.topic_item.selected .topic_label {
+    background-color: rgb(255, 255, 255);
 }
 
 .topic_label {
@@ -53,5 +66,10 @@
 
     .topic_number {
         font-size: 1em;
+    }
+
+    .topic_item {
+        padding: 10px;
+        border-radius: 10px;
     }
 }
