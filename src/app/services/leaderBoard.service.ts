@@ -10,6 +10,7 @@ export interface LeaderData {
 export interface TopicData {
     id: string;
     label: string;
+    image: string;
 }
 
 @Injectable({
@@ -21,14 +22,17 @@ export class LeaderBoardService {
             {
                 id: "comunicacion_aeronautica",
                 label: "Comunicaciones Aeronáuticas",
+                image: "https://storage.googleapis.com/labs-pro-public/apd_assets/comunicacion_aeronautica.svg"
             },
             {
                 id: "aerodinamica_aplicada",
                 label: "Aerodinámica Aplicada",
+                image: "https://storage.googleapis.com/labs-pro-public/apd_assets/aerodinamica_aplicada.svg",
             },
             {
                 id: "derecho_aereo",
                 label: "Derecho Aéreo",
+                image: "https://storage.googleapis.com/labs-pro-public/apd_assets/derecho_aereo.svg",
             },
         ];
     }
