@@ -188,6 +188,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position-x: center;
+    background-position-y: bottom;
+    border-radius: 10px;
 }
 
 .relative {

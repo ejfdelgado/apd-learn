@@ -1,1 +1,240 @@
-[]
+[
+    {
+        "txt": "¿En qué bandas de frecuencias operan las comunicaciones aéreas?",
+        "choices": [
+            {
+                "txt": "VLF Muy Baja Frecuencia.",
+                "correctness": 0
+            },
+            {
+                "txt": "VHF Muy Alta Frecuencia.",
+                "correctness": 100
+            },
+            {
+                "txt": "UHF Ultra Alta Frecuencia.",
+                "correctness": 0
+            }
+        ]
+    },
+    {
+        "txt": "¿Cuál es el dial de la frecuencia de emergencia aeronáutica?",
+        "choices": [
+            {
+                "txt": "118,0 MHz.",
+                "correctness": 0
+            },
+            {
+                "txt": "121,5 MHz.",
+                "correctness": 100
+            },
+            {
+                "txt": "122,9 KHz.",
+                "correctness": 0
+            }
+        ]
+    },
+    {
+        "txt": "¿En dónde se pueden verificar las frecuencias aeronáuticas de comunicación de un aeródromo?",
+        "choices": [
+            {
+                "txt": "En la carta aérea del ATM nacional.",
+                "correctness": 0
+            },
+            {
+                "txt": "En las diferentes cartas aeronáuticas publicadas en el AIP – AD Aeródromo.",
+                "correctness": 100
+            },
+            {
+                "txt": "Directamente en las instalaciones del aeródromo para confirmar su dial.",
+                "correctness": 0
+            }
+        ]
+    },
+    {
+        "txt": "¿Qué es interferencia?",
+        "choices": [
+            {
+                "txt": "Propagación de muchas ondas de radio.",
+                "correctness": 0
+            },
+            {
+                "txt": "Intermitencia de una onda de frecuencia.",
+                "correctness": 0
+            },
+            {
+                "txt": "Cuando dos señales en la misma onda se interrumpen entre sí.",
+                "correctness": 100
+            }
+        ]
+    },
+    {
+        "txt": "¿Qué tipo de Interferencias existen?",
+        "choices": [
+            {
+                "txt": "Ruido atmosférico.",
+                "correctness": 0
+            },
+            {
+                "txt": "Ruido producido por el hombre.",
+                "correctness": 0
+            },
+            {
+                "txt": "Las dos opciones son correctas.",
+                "correctness": 100
+            }
+        ]
+    },
+    {
+        "txt": "¿Cuál es el alfabeto utilizado para deletrear palabras en la aviación?",
+        "choices": [
+            {
+                "txt": "Código “Q” de comunicaciones.",
+                "correctness": 0
+            },
+            {
+                "txt": "Lenguaje militar táctico.",
+                "correctness": 0
+            },
+            {
+                "txt": "Alfabeto Fonético Internacional OACI",
+                "correctness": 100
+            }
+        ]
+    },
+    {
+        "txt": "De acuerdo con el Alfabeto Fonético OACI, ¿cuál es el correcto deletreo de la palabra “VUELO”?",
+        "choices": [
+            {
+                "txt": "Vaca – Uva – Enano – Limón – Opera.",
+                "correctness": 0
+            },
+            {
+                "txt": "Victor – Uniform – Eco – Lima – Oscar.",
+                "correctness": 100
+            },
+            {
+                "txt": "Vision – Uniform – Eco - Liceo – Omar.",
+                "correctness": 0
+            }
+        ]
+    },
+    {
+        "txt": "Según el alfabeto fonético de la OACI. La letra equis (x) se pronuncia:",
+        "choices": [
+            {
+                "txt": "Exruy",
+                "correctness": 0
+            },
+            {
+                "txt": "Exrey",
+                "correctness": 100
+            },
+            {
+                "txt": "Extrey",
+                "correctness": 0
+            }
+        ]
+    },
+    {
+        "txt": "¿Cómo se verifica que la información suministrada por radio, haya sido correctamente recibida?",
+        "choices": [
+            {
+                "txt": "Obturando el PTT tres veces al terminar el mensaje.",
+                "correctness": 0
+            },
+            {
+                "txt": "Se debe colacionar la información.",
+                "correctness": 100
+            },
+            {
+                "txt": "Respondiendo “RECIBIDO” al terminar de escucharla.",
+                "correctness": 0
+            }
+        ]
+    },
+    {
+        "txt": "¿Qué no puede existir en el proceso de la comunicación?",
+        "choices": [
+            {
+                "txt": "Dudas, confusión y ambigüedad.",
+                "correctness": 100
+            },
+            {
+                "txt": "Que la información sea veraz.",
+                "correctness": 0
+            },
+            {
+                "txt": "Que el idioma sea el mismo.",
+                "correctness": 0
+            }
+        ]
+    },
+    {
+        "txt": "¿Qué significa PAN-PAN?",
+        "choices": [
+            {
+                "txt": "Señal de aviso de Urgencia.",
+                "correctness": 100
+            },
+            {
+                "txt": "Señal de aviso de emergencia.",
+                "correctness": 0
+            },
+            {
+                "txt": "Aviso de información aeronáutica.",
+                "correctness": 0
+            }
+        ]
+    },
+    {
+        "txt": "¿Qué significa MAY DAY - MAY DAY - MAY DAY?",
+        "choices": [
+            {
+                "txt": "Señal de aviso de Urgencia.",
+                "correctness": 0
+            },
+            {
+                "txt": "Señal de aviso de emergencia.",
+                "correctness": 100
+            },
+            {
+                "txt": "Aviso de información aeronáutica.",
+                "correctness": 0
+            }
+        ]
+    },
+    {
+        "txt": "Cuando una aeronave se encuentra en una situación de emergencia, radiotelefónicamente utiliza las palabras:",
+        "choices": [
+            {
+                "txt": "Mayday, mayday, mayday",
+                "correctness": 100
+            },
+            {
+                "txt": "Pan, pan, pan",
+                "correctness": 0
+            },
+            {
+                "txt": "Sos, sos, sos",
+                "correctness": 0
+            }
+        ]
+    },
+    {
+        "txt": "Cuando una aeronave se encuentra en una situación de urgencia, radiotelefónicamente utiliza las palabras:",
+        "choices": [
+            {
+                "txt": "Mayday, mayday, mayday",
+                "correctness": 0
+            },
+            {
+                "txt": "Pan, pan, pan",
+                "correctness": 100
+            },
+            {
+                "txt": "Sos, sos, sos",
+                "correctness": 0
+            }
+        ]
+    }
+]

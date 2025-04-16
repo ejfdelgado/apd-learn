@@ -4,7 +4,24 @@ import { Injectable } from "@angular/core";
     providedIn: 'root'
 })
 export class UtilityService {
-    fullScreen() {
+    detectDevice() {
+        const windowAny: any = window;
+        const userAgent = navigator.userAgent || navigator.vendor || windowAny["opera"];
+        // Check for mobile devices
+        if (/android|iphone|ipad|ipod|windows phone/i.test(userAgent)) {
+            return 'mobile';
+        }
+
+        // Default to desktop
+        return 'desktop';
+    }
+
+    fullScreen(force: boolean = false) {
+        if (!force) {
+            if (this.detectDevice() == "desktop") {
+                return;
+            }
+        }
         const element = document.documentElement; // Target the entire page
         if (element.requestFullscreen) {
             element.requestFullscreen();

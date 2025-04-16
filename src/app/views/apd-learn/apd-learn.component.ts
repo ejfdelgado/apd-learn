@@ -89,6 +89,7 @@ export class ApdLearnComponent extends BaseComponent implements OnInit, OnDestro
         this.router.navigate(['apd-learn', "theory"]);
       },
     });
+    /*
     this.extraOptions.push({
       label: "Lista de chequeo",
       icon: "checklist",
@@ -97,6 +98,7 @@ export class ApdLearnComponent extends BaseComponent implements OnInit, OnDestro
         this.router.navigate(['apd-learn', "checklist"]);
       },
     });
+    */
     this.extraOptions.push({
       label: "Puntuaciones",
       icon: "emoji_events",

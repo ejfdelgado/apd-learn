@@ -7,29 +7,29 @@
             "background-color": "#aee8ff"
         },
         "bodyStyle": {
-            "background-image": "url(\"https://storage.googleapis.com/labs-pro-public/svg/car.svg\")"
+            "background-image": "url(\"https://storage.googleapis.com/labs-pro-public/apd_assets/comunicacion_aeronautica.svg\")"
         }
     },
     {
         "id": "topic_2.json",
-        "title": "Comunicaciones Aeronáuticas",
-        "description": "Comunicaciones Aeronauticas",
+        "title": "Aerodinámica Aplicada",
+        "description": "Aerodinámica Aplicada",
         "backgroundStyle": {
             "background-color": "rgb(212 255 193)"
         },
         "bodyStyle": {
-            "background-image": "url(\"https://storage.googleapis.com/labs-pro-public/svg/mountain.svg\")"
+            "background-image": "url(\"https://storage.googleapis.com/labs-pro-public/apd_assets/aerodinamica_aplicada.svg\")"
         }
     },
     {
         "id": "topic_3.json",
-        "title": "Comunicaciones Aeronáuticas",
-        "description": "Comunicaciones Aeronauticas",
+        "title": "Derecho Aéreo",
+        "description": "Derecho Aéreo",
         "backgroundStyle": {
             "background-color": "#ffe3c7"
         },
         "bodyStyle": {
-            "background-image": "url(\"https://storage.googleapis.com/labs-pro-public/svg/volcano.svg\")"
+            "background-image": "url(\"https://storage.googleapis.com/labs-pro-public/apd_assets/derecho_aereo.svg\")"
         }
     }
 ]

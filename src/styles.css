@@ -164,6 +164,11 @@ app-checklist {
   right: 0;
   bottom: 0;
   top: 80px;
+}
+
+
+app-theory,
+app-checklist {
   overflow-y: scroll;
 }
 

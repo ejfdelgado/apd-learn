@@ -73,7 +73,7 @@ export class QuestionsComponent implements OnInit {
     const confirmed = await this.modalSrv.confirm({
       title: "Un segundo...",
       txt: "¿Estás seguro que deseas salir?",
-      imageUrl: `${MyConstants.SRV_ROOT}assets/img/ask-icon.svg`,
+      imageUrl: `https://storage.googleapis.com/labs-pro-public/apd_assets/quit.svg`,
     });
     if (!confirmed) {
       return;
