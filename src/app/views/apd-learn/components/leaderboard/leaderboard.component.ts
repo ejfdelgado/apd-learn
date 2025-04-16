@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { LeaderBoardService, LeaderData, MyScoreData, TopicData } from 'src/app/services/leaderBoard.service';
+import { MyConstants } from '@ejfdelgado/ejflab-common/src/MyConstants';
 
 @Component({
   selector: 'app-leaderboard',
@@ -46,11 +47,16 @@ export class LeaderboardComponent implements OnInit {
     this.others = await this.leaderBoardSrv.loadLeaderBoard(this.selectedTopic.id);
     this.others.forEach((item, index) => {
       item.cache = {};
-      item.cache['top'] = this.sanitizer.bypassSecurityTrustHtml(`<spam>${index + 1}</spam>`);
+      if (index < 3) {
+        item.cache['top'] = this.sanitizer.bypassSecurityTrustHtml(`<img style="width: 31px;top:3px;position: absolute;" src="${MyConstants.SRV_ROOT + "assets/img/leader" + (index + 1) + ".svg"}"/><spam>${index + 1}</spam>`);
+      } else {
+        item.cache['top'] = this.sanitizer.bypassSecurityTrustHtml(`<spam>${index + 1}</spam>`);
+      }
       item.cache['avatarStyle'] = {
-        "background-color": "red",
+        "background-color": this.stringToColor(item.name),
         "color": "white",
       };
+      item.cache['avatar'] = this.sanitizer.bypassSecurityTrustHtml(`<spam>${item.name.charAt(0).toLocaleUpperCase()}</spam>`);
     });
   }
 
@@ -86,6 +92,32 @@ export class LeaderboardComponent implements OnInit {
       return {};
     }
     return user.cache['avatarStyle'];
+  }
+
+  getAvatar(top: number, user: LeaderData) {
+    if (!user.cache) {
+      return "";
+    }
+    return user.cache['avatar'];
+  }
+
+  stringToColor(str: string) {
+    let hash = 0;
+
+    // Generate a hash from the string
+    for (let i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    // Convert hash to RGB
+    let color = '#';
+    for (let i = 0; i < 3; i++) {
+      // Shift and mask to get RGB components
+      const value = (hash >> (i * 8)) & 0xFF;
+      color += ('00' + value.toString(16)).slice(-2);
+    }
+
+    return color;
   }
 
   createRadarChart(values: number[], options: any = {}) {
