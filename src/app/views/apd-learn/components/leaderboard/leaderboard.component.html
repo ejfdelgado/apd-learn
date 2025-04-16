@@ -1,7 +1,7 @@
 <div class="container_vertical padding_30 local_full">
-    <h1 class="text_centered">Puntuación personal</h1>
     <div class="inner_canvas full container_vertical">
         <div class="container_vertical responsive_width_60">
+            <h1 class="text_centered">Puntuación personal</h1>
             <div class="container_horizontal centered">
                 <div class="my_profile" [innerHtml]="svgRadarSvg"></div>
             </div>
@@ -18,8 +18,17 @@
                     <div class="topic_number">{{ getMyScoreByTopic(topic.id) }}</div>
                 </div>
             </div>
+            <div class="container_horizontal">&nbsp;</div>
+            <h1 class="margin_bottom_0 text_centered">Puntuación global en<br><strong>{{ selectedTopic?.label
+                    }}</strong></h1>
+            <div class="container_vertical gap_10">
+                <div class="user_item container_horizontal vcentered gap_10" *ngFor="let user of others; index as i;">
+                    <div class="user_number" [innerHtml]="getUserNumber(i, user)"></div>
+                    <div class="user_icon" [ngStyle]="getUserAvatarStyle(i, user)"></div>
+                    <div class="full">{{ user.name }}</div>
+                    <div class="user_score">{{ user.score }}</div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="container_horizontal">&nbsp;</div>
-    <h1 class="margin_bottom_0 text_centered">Puntuación global en<br><strong>{{ selectedTopic?.label }}</strong></h1>
 </div>

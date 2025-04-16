@@ -44,6 +44,14 @@ export class LeaderboardComponent implements OnInit {
 
     this.selectedTopic = this.topics[0];
     this.others = await this.leaderBoardSrv.loadLeaderBoard(this.selectedTopic.id);
+    this.others.forEach((item, index) => {
+      item.cache = {};
+      item.cache['top'] = this.sanitizer.bypassSecurityTrustHtml(`<spam>${index + 1}</spam>`);
+      item.cache['avatarStyle'] = {
+        "background-color": "red",
+        "color": "white",
+      };
+    });
   }
 
   getMyStyleByTopic(topic: string): any {
@@ -64,6 +72,20 @@ export class LeaderboardComponent implements OnInit {
 
   selectTopic(topic: TopicData) {
     this.selectedTopic = topic;
+  }
+
+  getUserNumber(top: number, user: LeaderData) {
+    if (!user.cache) {
+      return "";
+    }
+    return user.cache['top'];
+  }
+
+  getUserAvatarStyle(top: number, user: LeaderData): { [key: string]: any; } {
+    if (!user.cache) {
+      return {};
+    }
+    return user.cache['avatarStyle'];
   }
 
   createRadarChart(values: number[], options: any = {}) {
