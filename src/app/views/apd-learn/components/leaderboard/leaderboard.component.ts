@@ -46,6 +46,12 @@ export class LeaderboardComponent implements OnInit {
     this.others = await this.leaderBoardSrv.loadLeaderBoard(this.selectedTopic);
   }
 
+  getMyStyleByTopic(topic: string): any {
+    return {
+      "width": `${this.getMyScoreByTopic(topic)}%`,
+    }
+  }
+
   getMyScoreByTopic(topic: string): number {
     if (!this.me) {
       return 0;
