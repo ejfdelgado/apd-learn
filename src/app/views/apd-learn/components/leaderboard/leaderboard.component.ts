@@ -44,11 +44,25 @@ export class LeaderboardComponent implements OnInit {
     }));
 
     this.selectedTopic = this.topics[0];
+    this.updateSelectedTopic();
+  }
+
+  getMyStyleByTopic(topic: string): any {
+    return {
+      "width": `${this.getMyScoreByTopic(topic)}%`,
+    }
+  }
+
+  async updateSelectedTopic() {
+    if (!this.selectedTopic) {
+      this.others = [];
+      return;
+    }
     this.others = await this.leaderBoardSrv.loadLeaderBoard(this.selectedTopic.id);
     this.others.forEach((item, index) => {
       item.cache = {};
       if (index < 3) {
-        item.cache['top'] = this.sanitizer.bypassSecurityTrustHtml(`<img style="width: 31px;top:3px;position: absolute;" src="${MyConstants.SRV_ROOT + "assets/img/leader" + (index + 1) + ".svg"}"/><spam>${index + 1}</spam>`);
+        item.cache['top'] = this.sanitizer.bypassSecurityTrustHtml(`<img style="width: 31px;top:3px;position: absolute;" src="${MyConstants.SRV_ROOT + "assets/img/leader" + (index + 1) + ".svg"}"/><spam style="font-size: 14px !important;">${index + 1}</spam>`);
       } else {
         item.cache['top'] = this.sanitizer.bypassSecurityTrustHtml(`<spam>${index + 1}</spam>`);
       }
@@ -58,12 +72,6 @@ export class LeaderboardComponent implements OnInit {
       };
       item.cache['avatar'] = this.sanitizer.bypassSecurityTrustHtml(`<spam>${item.name.charAt(0).toLocaleUpperCase()}</spam>`);
     });
-  }
-
-  getMyStyleByTopic(topic: string): any {
-    return {
-      "width": `${this.getMyScoreByTopic(topic)}%`,
-    }
   }
 
   getMyScoreByTopic(topic: string): number {
@@ -78,6 +86,7 @@ export class LeaderboardComponent implements OnInit {
 
   selectTopic(topic: TopicData) {
     this.selectedTopic = topic;
+    this.updateSelectedTopic();
   }
 
   getUserNumber(top: number, user: LeaderData) {

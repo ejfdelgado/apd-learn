@@ -1,6 +1,6 @@
 {
   "name": "apd-learn",
-  "version": "1.2.3",
+  "version": "1.2.5",
   "description": "",
   "main": "app.mjs",
   "scripts": {

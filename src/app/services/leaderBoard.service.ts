@@ -85,6 +85,6 @@ export class LeaderBoardService {
                 name: "jussuarezga",
                 score: 2730,
             },
-        ];
+        ].sort(() => 0.5 - Math.random());
     }
 }
