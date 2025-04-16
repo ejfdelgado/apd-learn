@@ -5,3 +5,19 @@
     left: 0;
     right: 0;
 }
+
+.topic_item .topic_icon {
+    height: 50px;
+    width: 50px;
+    border: 3px solid rgb(159, 210, 255);
+    background-size: contain;
+    border-radius: 100%;
+}
+
+.topic_label {
+    font-size: 1.5em;
+}
+
+.topic_number {
+    font-size: 1.8em;
+}

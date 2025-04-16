@@ -1,8 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { LeaderBoardService, LeaderData, TopicData } from 'src/app/services/leaderBoard.service';
-
-
+import { LeaderBoardService, LeaderData, MyScoreData, TopicData } from 'src/app/services/leaderBoard.service';
 
 @Component({
   selector: 'app-leaderboard',
@@ -12,7 +10,8 @@ import { LeaderBoardService, LeaderData, TopicData } from 'src/app/services/lead
   ]
 })
 export class LeaderboardComponent implements OnInit {
-  me: LeaderData | null = null;
+  selectedTopic: string = "";
+  me: MyScoreData | null = null;
   others: LeaderData[] = [];
   svgRadarSvg: SafeHtml | null = null;
   topics: TopicData[] = [];
@@ -21,7 +20,40 @@ export class LeaderboardComponent implements OnInit {
     public leaderBoardSrv: LeaderBoardService,
     private sanitizer: DomSanitizer,
   ) {
+  }
 
+  async ngOnInit() {
+    this.me = await this.leaderBoardSrv.loadMyScore();
+    this.topics = await this.leaderBoardSrv.loadLeaderTopics();
+
+    const values = this.topics.map((topic) => {
+      if (!this.me) {
+        return 0;
+      }
+      return this.me.topics[topic.id];
+    });
+
+    this.svgRadarSvg = this.sanitizer.bypassSecurityTrustHtml(this.createRadarChart(values, {
+      size: 400,
+      strokeColor: "#0ec9f4",
+      levels: 1,
+      strokeWidth: 3,
+      circleRadius: 23,
+      topics: this.topics
+    }));
+
+    this.selectedTopic = this.topics[0].id;
+    this.others = await this.leaderBoardSrv.loadLeaderBoard(this.selectedTopic);
+  }
+
+  getMyScoreByTopic(topic: string): number {
+    if (!this.me) {
+      return 0;
+    }
+    if (topic in this.me.topics) {
+      return Math.round(100 * this.me.topics[topic]);
+    }
+    return 0;
   }
 
   createRadarChart(values: number[], options: any = {}) {
@@ -112,18 +144,5 @@ export class LeaderboardComponent implements OnInit {
     `;
 
     return svg;
-  }
-
-  async ngOnInit() {
-    this.topics = await this.leaderBoardSrv.loadLeaderTopics();
-    this.others = await this.leaderBoardSrv.loadLeaderBoard("");
-    this.svgRadarSvg = this.sanitizer.bypassSecurityTrustHtml(this.createRadarChart([0.1, 0.5, 1], {
-      size: 400,
-      strokeColor: "#0ec9f4",
-      levels: 1,
-      strokeWidth: 3,
-      circleRadius: 23,
-      topics: this.topics
-    }));
   }
 }

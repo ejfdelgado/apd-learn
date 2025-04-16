@@ -5,6 +5,15 @@
             <div class="container_horizontal centered">
                 <div class="my_profile" [innerHtml]="svgRadarSvg"></div>
             </div>
+            <div class="container_vertical gap_10">
+                <div class="topic_item container_horizontal vcentered gap_20" *ngFor="let topic of topics">
+                    <div class="topic_icon" [ngStyle]="{'background-image':'url('+topic.image+')'}"></div>
+                    <div class="topic_label full white_subtitle">
+                        <span>{{ topic.label }}</span>
+                    </div>
+                    <div class="topic_number">{{ getMyScoreByTopic(topic.id) }}</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

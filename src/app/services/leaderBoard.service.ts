@@ -13,6 +13,10 @@ export interface TopicData {
     image: string;
 }
 
+export interface MyScoreData {
+    topics: { [key: string]: number },
+}
+
 @Injectable({
     providedIn: 'root'
 })
@@ -36,6 +40,17 @@ export class LeaderBoardService {
             },
         ];
     }
+
+    async loadMyScore(): Promise<MyScoreData> {
+        return {
+            topics: {
+                "comunicacion_aeronautica": 0.5,
+                "derecho_aereo": 0.1,
+                "aerodinamica_aplicada": 1,
+            }
+        }
+    }
+
     async loadLeaderBoard(topicId: string, offset: number = 0, pageSize: number = 100): Promise<LeaderData[]> {
         return [
             {
